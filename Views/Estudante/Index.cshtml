@@ -1,0 +1,34 @@
+@model List<MvcRazorViews.ViewModels.EstudanteViewModel>
+@{
+    ViewData["title"] = "Estudantes";
+}
+
+
+<h1>Estudantes</h1>
+
+@if(Model.Count == 0)
+{
+    <p>Nenhum aluno cadastrado</p>
+     <a href="#">Cadastre um aluno</a>
+}
+else{
+
+
+@foreach(var estudante in Model)
+{
+
+    <h3>
+        <a href="/Estudante/Show/@estudante.home">@estudante.Nome</a>
+        
+    </h3>
+    <p>@estudante.Endereco</p>
+    @if(estudante.Ativo)
+    {
+          <a href="#">Iniciar Conversa</a>
+    }
+    <hr>
+}
+
+}
+
+
